@@ -1,9 +1,9 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import StackingClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
@@ -26,13 +26,9 @@ class SentimentModel:
     def build_pipeline (self):
         tfidf = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
 
-        base_models = [('lr', LogisticRegression(max_iter=1000)), ('svc', SVC(probability=True))]
+        nb = MultinomialNB()
         
-        meta_model = MultinomialNB()
-
-        stack = StackingClassifier(estimators=base_models, final_estimator=meta_model, passthrough=True, n_jobs=-1)   
-
-        pipeline = Pipeline([('tfidf', tfidf), ('stack', stack)])
+        pipeline = Pipeline([('tfidf', tfidf), ('nb', nb)])
 
         self.pipeline = pipeline
         
@@ -46,3 +42,11 @@ class SentimentModel:
         print(classification_report(self.y_test, y_pred))
 
         return
+    
+model = SentimentModel('processed.pkl')
+print("Data Loaded.....")
+model.build_pipeline()
+print("Pipeline Built.....")
+model.fit_model()
+print("Model Built....")
+model.predict()
