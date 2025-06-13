@@ -24,7 +24,7 @@ class SentimentModel:
     
     def build_pipeline (self):
         tfidf = TfidfVectorizer(max_features=100000, ngram_range=(1, 3))                
-        nb = MultinomialNB()
+        nb = MultinomialNB(alpha=0.5)
         pipeline = Pipeline([('tfidf', tfidf), ('nb', nb)])
         self.pipeline = pipeline        
         return

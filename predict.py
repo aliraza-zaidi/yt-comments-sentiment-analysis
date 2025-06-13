@@ -28,5 +28,5 @@ def contributing_word(model, comment):
 
 
 model = joblib.load('sentiment_model.pkl')
-comment = "Did not expect you to openly criticize so many different elites. Utterly disgusted."
+comment = "As an Iranian, this video is pure propanganda"
 contributing_word(model, comment)
