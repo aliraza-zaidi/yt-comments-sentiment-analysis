@@ -19,3 +19,4 @@ stop_words = set(stopwords.words("english"))
 
 data["cleaned_comment"] = data["comment"].apply(clean_text)
 
+data.to_pickle("processed.pkl")
