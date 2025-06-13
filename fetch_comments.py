@@ -2,16 +2,21 @@ import re
 import emoji
 from langdetect import detect
 from googleapiclient.discovery import build
-import joblib
 
 def clean_comment (comment):
     comment = emoji.replace_emoji(comment, replace="")
-    text = re.sub(r'[^\w\s]', '', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text.lower()
+    comment = re.sub(r'[^\w\s]', '', comment)
+    comment = re.sub(r'\s+', ' ', comment).strip()
+    return comment.lower()
 
 def is_english (comment):
-    return detect(comment) == 'en'
+    comment = comment.strip()
+    if not comment or len(comment.split()) < 3:  # skip if too short
+        return False
+    try:
+        return detect(comment) == 'en'
+    except:
+        return False
 
 def fetch_comments(video_id, api_key, max_comments=100, max_len=150):
     youtube = build('youtube', 'v3', developerKey=api_key)
@@ -24,7 +29,8 @@ def fetch_comments(video_id, api_key, max_comments=100, max_len=150):
             videoId=video_id,
             maxResults=100,
             textFormat='plainText',
-            pageToken=next_page_token
+            pageToken=next_page_token,
+            order='relevance'
         )
         response = request.execute()
         
@@ -41,14 +47,3 @@ def fetch_comments(video_id, api_key, max_comments=100, max_len=150):
             break
 
     return comments
-
-model = joblib.load('sentiment_model.pkl')
-
-def predict_comments(comments, model):
-    predictions = []    
-    
-    for comment in comments:
-        prediction = model.predict([comment])[0]
-        predictions.append("Positive" if prediction == 1 else "Negative")
-
-    return list(zip(comments, predictions))
