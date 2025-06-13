@@ -6,8 +6,10 @@ from sklearn.ensemble import StackingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import Pipeline
+#from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
+from imblearn.pipeline import Pipeline
+from imblearn.over_sampling import RandomOverSampler
 
 class SentimentModel:
     def __init__ (self, file_name):
@@ -26,8 +28,9 @@ class SentimentModel:
     
     def build_pipeline (self):
         tfidf = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
-        nb = MultinomialNB()    
-        pipeline = Pipeline([('tfidf', tfidf), ('nb', nb)])
+        sampler = RandomOverSampler(random_state=42)
+        lr = LogisticRegression(max_iter=1000, class_weight='balanced')
+        pipeline = Pipeline([('tfidf', tfidf), ('os', sampler), ('lr', lr)])
         self.pipeline = pipeline        
         return
     
@@ -38,10 +41,7 @@ class SentimentModel:
         y_pred = self.pipeline.predict(self.X_test)
         print(classification_report(self.y_test, y_pred))
         return
-    
-    def predict_comment (self, comment):
-        prediction = self.pipeline.predict([comment])[0]
-        return prediction
+       
     
     def save_model (self):
         joblib.dump(self.pipeline, 'sentiment_model.pkl')
