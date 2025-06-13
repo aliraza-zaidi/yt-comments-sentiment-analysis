@@ -2,9 +2,6 @@ import pandas as pd
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.ensemble import StackingClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import LinearSVC
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
@@ -39,8 +36,7 @@ class SentimentModel:
         y_pred = self.pipeline.predict(self.X_test)
         print(classification_report(self.y_test, y_pred))
         return
-       
-    
+           
     def save_model (self):
         joblib.dump(self.pipeline, 'sentiment_model.pkl')
         return
