@@ -21,15 +21,14 @@ def contributing_word(model, comment):
 
     top_index = np.argmax(np.abs(contribution))
     top_word = feature_names[top_index]
-    word_contribution = contribution[top_index]
-    
+    word_contribution = contribution[top_index]    
     pred = classifier.predict(tfidf_vector)[0]
     print(f"Predicted sentiment: {pred}")
     print(f"Top contributing word: '{top_word}' (score: {word_contribution:.4f})")
 
 
 model = joblib.load('sentiment_model.pkl')
-comment = "As an Iranian, this video is pure propanganda"
+comment = "poor highlights"
 tp = TextProcessor()
 comment = tp.process_comment(comment)
 contributing_word(model, comment)
