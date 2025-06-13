@@ -4,9 +4,6 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 class TextProcessor:
-    nltk.download('stopwords')
-    nltk.download('wordnet')
-
     def __init__ (self):        
         self.lemmatizer = WordNetLemmatizer()
         self.stop_words = set(stopwords.words("english"))
@@ -28,3 +25,8 @@ class TextProcessor:
     
     def save_data (self):
         self.data.to_pickle('processed.pkl')
+
+tp = TextProcessor()
+tp.load_data("comments.pkl")
+tp.process_data()
+tp.save_data()

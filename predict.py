@@ -1,5 +1,6 @@
 import numpy as np
 import joblib
+from  text_processing import TextProcessor
 
 def predict_comment (comment):
     prediction = model.predict([comment])[0]
@@ -29,4 +30,6 @@ def contributing_word(model, comment):
 
 model = joblib.load('sentiment_model.pkl')
 comment = "As an Iranian, this video is pure propanganda"
+tp = TextProcessor()
+comment = tp.process_comment(comment)
 contributing_word(model, comment)
