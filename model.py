@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import StackingClassifier
@@ -25,13 +26,9 @@ class SentimentModel:
     
     def build_pipeline (self):
         tfidf = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
-
-        nb = MultinomialNB()
-        
+        nb = MultinomialNB()    
         pipeline = Pipeline([('tfidf', tfidf), ('nb', nb)])
-
-        self.pipeline = pipeline
-        
+        self.pipeline = pipeline        
         return
     
     def fit_model (self):
@@ -40,9 +37,17 @@ class SentimentModel:
     def predict (self):
         y_pred = self.pipeline.predict(self.X_test)
         print(classification_report(self.y_test, y_pred))
-
         return
     
+    def predict_comment (self, comment):
+        prediction = self.pipeline.predict([comment])[0]
+        return prediction
+    
+    def save_model (self):
+        joblib.dump(self.pipeline, 'sentiment_model.pkl')
+        return
+    
+
 model = SentimentModel('processed.pkl')
 print("Data Loaded.....")
 model.build_pipeline()
@@ -50,3 +55,4 @@ print("Pipeline Built.....")
 model.fit_model()
 print("Model Built....")
 model.predict()
+model.save_model()
