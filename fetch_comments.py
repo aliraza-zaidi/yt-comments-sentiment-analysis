@@ -8,3 +8,6 @@ def clean_comment (comment):
     text = re.sub(r'[^\w\s]', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text.lower()
+
+def is_english (comment):
+    return detect(comment) == 'en'
