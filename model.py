@@ -26,10 +26,9 @@ class SentimentModel:
         return train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
     
     def build_pipeline (self):
-        tfidf = TfidfVectorizer(max_features=100000, ngram_range=(1, 3))        
-        #lr = LogisticRegression(max_iter=1000, class_weight='balanced', C=1.0, solver='liblinear')
-        lr = MultinomialNB()
-        pipeline = Pipeline([('tfidf', tfidf), ('lr', lr)])
+        tfidf = TfidfVectorizer(max_features=100000, ngram_range=(1, 3))                
+        nb = MultinomialNB()
+        pipeline = Pipeline([('tfidf', tfidf), ('nb', nb)])
         self.pipeline = pipeline        
         return
     
