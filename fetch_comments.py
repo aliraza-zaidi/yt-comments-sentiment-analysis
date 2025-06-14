@@ -18,7 +18,7 @@ def is_english (comment):
     except:
         return False
 
-def fetch_comments(video_id, api_key, max_comments=100, max_len=150):
+def fetch_comments(video_id, api_key, max_comments=200, max_len=150):
     youtube = build('youtube', 'v3', developerKey=api_key)
     comments = []
     next_page_token = None
