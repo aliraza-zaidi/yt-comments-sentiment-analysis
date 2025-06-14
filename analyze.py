@@ -53,7 +53,7 @@ def find_extreme_comments(comments, model, preprocessor):
 model = joblib.load('sentiment_model.pkl')
 
 API_KEY = 'AIzaSyBPZoe4y2HlVGvEhZNIroSLuekKIsob-S0'
-VIDEO_ID = '3HDv-LvNppI'
+VIDEO_ID = 'bHCcSOKMAds'
 
 comments = fetch_comments(VIDEO_ID, API_KEY)
 tp = TextProcessor()
