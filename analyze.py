@@ -14,9 +14,9 @@ def predict_comments(comments, model):
     return predictions
 
 def analyze_sentiment_ratio(comments, model, preprocessor):    
-    processed_comments = [preprocessor.process_comment(comment) for comment in comments]
+    processed_comments = [preprocessor.process_comment(comment) for comment in comments]    
     predictions = predict_comments(processed_comments, model)
-    
+
     counts = Counter(predictions)
     positive = counts["Positive"]
     negative = counts["Negative"]
@@ -53,7 +53,7 @@ def find_extreme_comments(comments, model, preprocessor):
 model = joblib.load('sentiment_model.pkl')
 
 API_KEY = 'AIzaSyBPZoe4y2HlVGvEhZNIroSLuekKIsob-S0'
-VIDEO_ID = 'IWVBWyZP4ug'
+VIDEO_ID = '3HDv-LvNppI'
 
 comments = fetch_comments(VIDEO_ID, API_KEY)
 tp = TextProcessor()

@@ -23,7 +23,7 @@ class SentimentModel:
         return train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
     
     def build_pipeline (self):
-        tfidf = TfidfVectorizer(max_features=100000, ngram_range=(1, 3,), min_df=5)                
+        tfidf = TfidfVectorizer(max_features=100000, ngram_range=(1, 4), min_df=5)                
         nb = MultinomialNB(alpha=0.5)
         pipeline = Pipeline([('tfidf', tfidf), ('nb', nb)])
         self.pipeline = pipeline        
