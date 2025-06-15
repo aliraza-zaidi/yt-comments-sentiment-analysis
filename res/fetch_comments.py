@@ -3,6 +3,15 @@ import emoji
 from langdetect import detect
 from googleapiclient.discovery import build
 
+def predict_comments(comments, model):
+    predictions = []    
+    
+    for comment in comments:
+        prediction = model.predict([comment])[0]
+        predictions.append("Positive" if prediction == 1 else "Negative")
+
+    return predictions
+
 def clean_comment (comment):
     comment = emoji.replace_emoji(comment, replace="")
     comment = re.sub(r'[^\w\s]', '', comment)

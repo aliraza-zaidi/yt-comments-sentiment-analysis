@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify, render_template
-from res.fetch_comments import fetch_comments
+from res.fetch_comments import fetch_comments, predict_comments
 from res.text_processing import TextProcessor
-from res.predict import predict_comments
 import joblib
 import numpy as np
 from collections import Counter
 import re
+
+API_KEY = "YOUR_API_KEY"
 
 app = Flask(__name__)
 model = joblib.load("model/sentiment_model.pkl")
@@ -28,7 +29,7 @@ def analyze():
     if not video_id:
         return jsonify({"error": "Invalid YouTube URL"}), 400
 
-    comments = fetch_comments(video_id, "AIzaSyCQbfoSsELr3qlu5XvNv97z6GERMQjfF5o")
+    comments = fetch_comments(video_id, API_KEY)
     processed = [tp.process_comment(c) for c in comments]
     predictions = predict_comments(processed, model)
 
