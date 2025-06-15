@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="layout">    
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='image.png') }}" alt="Sentiment Graphic">
+    </div>
+    
+    <div class="container">
+        <h1>YouTube Sentiment Analyzer</h1>
+        
+        <form id="analyze-form">
+            <input type="text" id="video-url" placeholder="Paste Video URL" required>
+            <div class="button-wrapper">                
+                <button type="submit">Analyze</button>
+            </div>
+        </form>
+        
+        <div id="loader" style="display:none; margin-top: 20px;">
+            <p>⏳ Analyzing comments... Please wait.</p>
+        </div>
+
+
+        <div id="results" style="display:none; margin-top: 30px;">
+    
+            <div class="result-card">
+                <h2>📊 Sentiment Analysis Summary</h2>
+                <p>💭 Total Comments Analyzed: <span id="count"></span></p>
+                <p>👍 Positive Comments: <span id="pos-count"></span></p>
+                <p>👎 Negative Comments: <span id="neg-count"></span></p>
+                <p>📈 Positive Ratio: <span id="ratio"></span></p>
+            </div>
+
+    
+            <div class="result-card">
+                <h3>🌟 Most Positive Comment:</h3>
+                <blockquote id="positive-comment" class="quote-box"></blockquote>
+            </div>
+    
+            <div class="result-card">
+                <h3>💔 Most Negative Comment:</h3>
+                <blockquote id="negative-comment" class="quote-box"></blockquote>
+            </div>
+
+        </div>
+
+        <div id="restart-section" style="display:none; margin-top: 20px;">
+            <button id="restart-btn">🔄 Start Over</button>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
