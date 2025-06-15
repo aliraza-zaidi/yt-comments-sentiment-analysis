@@ -40,4 +40,13 @@ pip install -r requirements.txt
 
 ```python
 API_KEY = "YOUR_API_KEY"
+```
+---
+
+### 4. Run the Appl
+
+To launch the web-based frontend for analyzing YouTube video sentiment:
+
+```bash
+python app.py
 
