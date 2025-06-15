@@ -23,10 +23,21 @@ A complete pipeline for analyzing the **sentiment of YouTube video comments** us
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/yt-comments-sentiment-analysis.git
+git clone https://github.com/aliraza-zaidi/yt-comments-sentiment-analysis.git
 cd yt-comments-sentiment-analysis
 
 ```
 ### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
+```
+### 3. Set up YouTube Data API
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a project and enable the **YouTube Data API v3**.
+3. Generate an **API key**.
+4. In your project/res folder, open `fetch_comments.py` and replace the placeholder with your API key:
+
+```python
+API_KEY = "YOUR_API_KEY"
+
