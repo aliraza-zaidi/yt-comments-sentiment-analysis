@@ -6,9 +6,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/static/bg2.png");
+    background-image: url("/static/bg.png");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
     flex-direction: column;
 }
