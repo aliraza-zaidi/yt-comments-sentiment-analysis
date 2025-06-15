@@ -26,3 +26,7 @@ A complete pipeline for analyzing the **sentiment of YouTube video comments** us
 git clone https://github.com/yourusername/yt-comments-sentiment-analysis.git
 cd yt-comments-sentiment-analysis
 
+```
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
