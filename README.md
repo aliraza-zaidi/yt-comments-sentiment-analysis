@@ -16,3 +16,13 @@ A complete pipeline for analyzing the **sentiment of YouTube video comments** us
 ---
 
 
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/yt-comments-sentiment-analysis.git
+cd yt-comments-sentiment-analysis
+
