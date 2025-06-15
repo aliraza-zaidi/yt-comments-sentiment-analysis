@@ -6,3 +6,4 @@ langdetect
 google-api-python-client
 Flask
 numpy
+nltk
