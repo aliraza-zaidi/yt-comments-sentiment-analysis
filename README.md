@@ -19,7 +19,7 @@ A complete pipeline for analyzing the **sentiment of YouTube video comments** us
 ---
 ### 🔍 Model Details
 
-- **Training Data:** Trained on DAIR-AI Text Emotion Classification Dataset containing ~42k textual comments. [Access it here] (https://www.icloud.com/iclouddrive/084E9TMZ_lykn3QhU-kIX1DDQ#merged_training)
+- **Training Data:** Trained on DAIR-AI Text Emotion Classification Dataset containing ~42k textual comments.
 - **Preprocessing:**
   - Lowercasing, punctuation & emoji removal
   - Tokenization, stop word removal, lemmatization
