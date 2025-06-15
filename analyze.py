@@ -1,6 +1,6 @@
 import numpy as np
 import joblib
-from fetch_comments import clean_comment, is_english, fetch_comments
+from fetch_comments import fetch_comments
 from collections import Counter
 from text_processing import TextProcessor
 
