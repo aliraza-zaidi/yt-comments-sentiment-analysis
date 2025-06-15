@@ -4,6 +4,9 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 class TextProcessor:
+    nltk.download("stopwords")
+    nltk.download("wordnet")
+    
     def __init__ (self):        
         self.lemmatizer = WordNetLemmatizer()
         self.stop_words = set(stopwords.words("english"))
