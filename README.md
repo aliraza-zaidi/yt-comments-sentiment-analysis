@@ -17,7 +17,16 @@ A complete pipeline for analyzing the **sentiment of YouTube video comments** us
 
 
 ---
+### 🔍 Model Details
 
+- **Training Data:** Trained on DAIR-AI Text Emotion Classification Dataset containing ~42k textual comments. [Access it here] (https://www.icloud.com/iclouddrive/084E9TMZ_lykn3QhU-kIX1DDQ#merged_training)
+- **Preprocessing:**
+  - Lowercasing, punctuation & emoji removal
+  - Tokenization, stop word removal, lemmatization
+- **Algorithm:** Multinomial Naive Bayes (MNB)
+- **Vectorizer:** `TfidfVectorizer` with up to **4-grams**
+
+---
 ## 🚀 Getting Started
 
 ### 1. Clone the repo
@@ -43,10 +52,12 @@ API_KEY = "YOUR_API_KEY"
 ```
 ---
 
-### 4. Run the Appl
+### 4. Run the App
 
 To launch the web-based frontend for analyzing YouTube video sentiment:
 
 ```bash
 python app.py
+```
+---
 
