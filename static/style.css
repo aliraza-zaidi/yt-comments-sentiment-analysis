@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("/static/image1.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+    flex-direction: column;
+}
+
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/static/image.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    gap: 50px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.image-container img {
+    width: 300px;
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    max-width: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.container > * {
+    position: relative;
+    z-index: 2;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #d60404;
+    color: rgb(0, 0, 0);
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ffffff;
+}
+
+#restart-btn {
+    background-color: #f44336;
+}
+
+#restart-btn:hover {
+    background-color: #d32f2f;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.result-card {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: white;
+    backdrop-filter: blur(6px);
+}
+
+.quote-box {
+    font-style: italic;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-left: 4px solid #d60404;
+    background-color: rgba(255, 255, 255, 0.05);
+}
