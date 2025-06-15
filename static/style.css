@@ -6,10 +6,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-image: url("/static/image1.jpeg");
+    background-image: url("/static/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; */
+    background-position: center;
     flex-direction: column;
 }
 
