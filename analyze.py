@@ -50,7 +50,7 @@ def find_extreme_comments(comments, model, preprocessor):
     print(f"   Confidence: {probs[most_negative_idx, negative_idx]:.4f}")
 
 
-model = joblib.load('sentiment_model.pkl')
+model = joblib.load('model/sentiment_model.pkl')
 
 API_KEY = 'AIzaSyBPZoe4y2HlVGvEhZNIroSLuekKIsob-S0'
 VIDEO_ID = 'bHCcSOKMAds'

@@ -38,11 +38,11 @@ class SentimentModel:
         return
            
     def save_model (self):
-        joblib.dump(self.pipeline, 'sentiment_model.pkl')
+        joblib.dump(self.pipeline, 'model/sentiment_model.pkl')
         return
     
 
-model = SentimentModel('processed.pkl')
+model = SentimentModel('data/processed.pkl')
 print("Data Loaded.....")
 model.build_pipeline()
 print("Pipeline Built.....")

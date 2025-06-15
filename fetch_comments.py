@@ -11,7 +11,7 @@ def clean_comment (comment):
 
 def is_english (comment):
     comment = comment.strip()
-    if not comment or len(comment.split()) < 3:  # skip if too short
+    if not comment or len(comment.split()) < 3:
         return False
     try:
         return detect(comment) == 'en'
@@ -38,9 +38,7 @@ def fetch_comments(video_id, api_key, max_comments=500, max_len=150):
             comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
             cleaned = clean_comment(comment)
             if is_english(cleaned) and len(cleaned) < max_len:
-                comments.append(cleaned)
-            # if len(comments) >= max_comments:
-            #     break
+                comments.append(cleaned)            
 
         next_page_token = response.get('nextPageToken')
         if not next_page_token:

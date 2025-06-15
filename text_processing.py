@@ -24,9 +24,9 @@ class TextProcessor:
         return self.clean_text(comment)
     
     def save_data (self):
-        self.data.to_pickle('processed.pkl')
+        self.data.to_pickle('data/processed.pkl')
 
 tp = TextProcessor()
-tp.load_data("comments.pkl")
+tp.load_data("data/comments.pkl")
 tp.process_data()
 tp.save_data()

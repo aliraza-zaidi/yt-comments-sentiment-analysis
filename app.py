@@ -8,7 +8,7 @@ from collections import Counter
 import re
 
 app = Flask(__name__)
-model = joblib.load("sentiment_model.pkl")
+model = joblib.load("model/sentiment_model.pkl")
 tp = TextProcessor()
 
 def extract_video_id(url):
