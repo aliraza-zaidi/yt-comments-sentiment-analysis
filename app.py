@@ -6,7 +6,7 @@ import numpy as np
 from collections import Counter
 import re
 
-API_KEY = "YOUR_API_KEY"
+API_KEY = "AIzaSyCQbfoSsELr3qlu5XvNv97z6GERMQjfF5o"
 
 app = Flask(__name__)
 model = joblib.load("model/sentiment_model.pkl")
